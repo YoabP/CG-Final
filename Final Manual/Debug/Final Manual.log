@@ -1,0 +1,171 @@
+﻿Build started 24-Apr-16 7:05:45 PM.
+     1>Project "c:\Users\yoab\documents\visual studio 2013\Projects\Final Manual\Final Manual\Final Manual.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\yoab\Documents\TEC\Semestre 8\CG\FINAL\bullet-2.82-r2704\src" /IC:\CGLibraries\glm /I"C:\CGLibraries\glew-1.11.0\include" /IC:\CGLibraries\freeglut\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp VoronoiFractureDemo.cpp Win32VoronoiFractureDemo.cpp
+         Win32VoronoiFractureDemo.cpp
+         VoronoiFractureDemo.cpp
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(281): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(323): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(467): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(607): warning C4244: 'argument' : conversion from 'double' to 'const btScalar', possible loss of data
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(614): warning C4244: 'argument' : conversion from 'double' to 'const btScalar', possible loss of data
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(622): warning C4244: 'argument' : conversion from 'double' to 'const btScalar', possible loss of data
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(632): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\yoab\documents\visual studio 2013\projects\final manual\final manual\voronoifracturedemo.cpp(639): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+         main.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\yoab\documents\visual studio 2013\Projects\Final Manual\Debug\Final Manual.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\CGLibraries\glew-1.11.0\lib\Release\Win32" /LIBPATH:C:\CGLibraries\freeglut\lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\yoab\documents\visual studio 2013\Projects\Final Manual\Debug\Final Manual.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\yoab\documents\visual studio 2013\Projects\Final Manual\Debug\Final Manual.lib" /MACHINE:X86 Debug\btAxisSweep3.obj
+         Debug\btBroadphaseProxy.obj
+         Debug\btCollisionAlgorithm.obj
+         Debug\btDbvt.obj
+         Debug\btDbvtBroadphase.obj
+         Debug\btDispatcher.obj
+         Debug\btMultiSapBroadphase.obj
+         Debug\btOverlappingPairCache.obj
+         Debug\btQuantizedBvh.obj
+         Debug\btSimpleBroadphase.obj
+         Debug\btActivatingCollisionAlgorithm.obj
+         Debug\btBox2dBox2dCollisionAlgorithm.obj
+         Debug\btBoxBoxCollisionAlgorithm.obj
+         Debug\btBoxBoxDetector.obj
+         Debug\btCollisionDispatcher.obj
+         Debug\btCollisionObject.obj
+         Debug\btCollisionWorld.obj
+         Debug\btCompoundCollisionAlgorithm.obj
+         Debug\btCompoundCompoundCollisionAlgorithm.obj
+         Debug\btConvex2dConvex2dAlgorithm.obj
+         Debug\btConvexConcaveCollisionAlgorithm.obj
+         Debug\btConvexConvexAlgorithm.obj
+         Debug\btConvexPlaneCollisionAlgorithm.obj
+         Debug\btDefaultCollisionConfiguration.obj
+         Debug\btEmptyCollisionAlgorithm.obj
+         Debug\btGhostObject.obj
+         Debug\btHashedSimplePairCache.obj
+         Debug\btInternalEdgeUtility.obj
+         Debug\btManifoldResult.obj
+         Debug\btSimulationIslandManager.obj
+         Debug\btSphereBoxCollisionAlgorithm.obj
+         Debug\btSphereSphereCollisionAlgorithm.obj
+         Debug\btSphereTriangleCollisionAlgorithm.obj
+         Debug\btUnionFind.obj
+         Debug\SphereTriangleDetector.obj
+         Debug\btBox2dShape.obj
+         Debug\btBoxShape.obj
+         Debug\btBvhTriangleMeshShape.obj
+         Debug\btCapsuleShape.obj
+         Debug\btCollisionShape.obj
+         Debug\btCompoundShape.obj
+         Debug\btConcaveShape.obj
+         Debug\btConeShape.obj
+         Debug\btConvex2dShape.obj
+         Debug\btConvexHullShape.obj
+         Debug\btConvexInternalShape.obj
+         Debug\btConvexPointCloudShape.obj
+         Debug\btConvexPolyhedron.obj
+         Debug\btConvexShape.obj
+         Debug\btConvexTriangleMeshShape.obj
+         Debug\btCylinderShape.obj
+         Debug\btEmptyShape.obj
+         Debug\btHeightfieldTerrainShape.obj
+         Debug\btMinkowskiSumShape.obj
+         Debug\btMultimaterialTriangleMeshShape.obj
+         Debug\btMultiSphereShape.obj
+         Debug\btOptimizedBvh.obj
+         Debug\btPolyhedralConvexShape.obj
+         Debug\btScaledBvhTriangleMeshShape.obj
+         Debug\btShapeHull.obj
+         Debug\btSphereShape.obj
+         Debug\btStaticPlaneShape.obj
+         Debug\btStridingMeshInterface.obj
+         Debug\btTetrahedronShape.obj
+         Debug\btTriangleBuffer.obj
+         Debug\btTriangleCallback.obj
+         Debug\btTriangleIndexVertexArray.obj
+         Debug\btTriangleIndexVertexMaterialArray.obj
+         Debug\btTriangleMesh.obj
+         Debug\btTriangleMeshShape.obj
+         Debug\btUniformScalingShape.obj
+         Debug\btContactProcessing.obj
+         Debug\btGenericPoolAllocator.obj
+         Debug\btGImpactBvh.obj
+         Debug\btGImpactCollisionAlgorithm.obj
+         Debug\btGImpactQuantizedBvh.obj
+         Debug\btGImpactShape.obj
+         Debug\btTriangleShapeEx.obj
+         Debug\gim_box_set.obj
+         Debug\gim_contact.obj
+         Debug\gim_memory.obj
+         Debug\gim_tri_collision.obj
+         Debug\btContinuousConvexCollision.obj
+         Debug\btConvexCast.obj
+         Debug\btGjkConvexCast.obj
+         Debug\btGjkEpa2.obj
+         Debug\btGjkEpaPenetrationDepthSolver.obj
+         Debug\btGjkPairDetector.obj
+         Debug\btMinkowskiPenetrationDepthSolver.obj
+         Debug\btPersistentManifold.obj
+         Debug\btPolyhedralContactClipping.obj
+         Debug\btRaycastCallback.obj
+         Debug\btSubSimplexConvexCast.obj
+         Debug\btVoronoiSimplexSolver.obj
+         Debug\btKinematicCharacterController.obj
+         Debug\btConeTwistConstraint.obj
+         Debug\btContactConstraint.obj
+         Debug\btFixedConstraint.obj
+         Debug\btGearConstraint.obj
+         Debug\btGeneric6DofConstraint.obj
+         Debug\btGeneric6DofSpringConstraint.obj
+         Debug\btHinge2Constraint.obj
+         Debug\btHingeConstraint.obj
+         Debug\btPoint2PointConstraint.obj
+         Debug\btSequentialImpulseConstraintSolver.obj
+         Debug\btSliderConstraint.obj
+         Debug\btSolve2LinearConstraint.obj
+         Debug\btTypedConstraint.obj
+         Debug\btUniversalConstraint.obj
+         Debug\btDiscreteDynamicsWorld.obj
+         Debug\btRigidBody.obj
+         Debug\btSimpleDynamicsWorld.obj
+         "Debug\Bullet-C-API.obj"
+         Debug\btMultiBody.obj
+         Debug\btMultiBodyConstraint.obj
+         Debug\btMultiBodyConstraintSolver.obj
+         Debug\btMultiBodyDynamicsWorld.obj
+         Debug\btMultiBodyJointLimitConstraint.obj
+         Debug\btMultiBodyJointMotor.obj
+         Debug\btMultiBodyPoint2Point.obj
+         Debug\btDantzigLCP.obj
+         Debug\btMLCPSolver.obj
+         Debug\btRaycastVehicle.obj
+         Debug\btWheelInfo.obj
+         Debug\btAlignedAllocator.obj
+         Debug\btConvexHull.obj
+         Debug\btConvexHullComputer.obj
+         Debug\btGeometryUtil.obj
+         Debug\btPolarDecomposition.obj
+         Debug\btQuickprof.obj
+         Debug\btSerializer.obj
+         Debug\btVector3.obj
+         Debug\main.obj
+         Debug\DemoApplication.obj
+         Debug\GLDebugDrawer.obj
+         Debug\GLDebugFont.obj
+         Debug\GlutDemoApplication.obj
+         Debug\GlutStuff.obj
+         Debug\GL_DialogDynamicsWorld.obj
+         Debug\GL_DialogWindow.obj
+         Debug\GL_ShapeDrawer.obj
+         Debug\GL_Simplex1to4.obj
+         Debug\RenderTexture.obj
+         Debug\stb_image.obj
+         Debug\Win32AppMain.obj
+         Debug\Win32DemoApplication.obj
+         Debug\VoronoiFractureDemo.obj
+         Debug\Win32VoronoiFractureDemo.obj
+         Final Manual.vcxproj -> c:\users\yoab\documents\visual studio 2013\Projects\Final Manual\Debug\Final Manual.exe
+     1>Done Building Project "c:\Users\yoab\documents\visual studio 2013\Projects\Final Manual\Final Manual\Final Manual.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.41
