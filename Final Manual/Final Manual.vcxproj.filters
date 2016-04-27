@@ -1160,5 +1160,20 @@
     <ClInclude Include="VoronoiFractureDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="btBulletCollisionCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="btBulletDynamicsCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet-C-Api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glew32.dll" />
+    <None Include="freeglut.dll" />
+    <None Include="OpenGLPropertySheet.props" />
+    <None Include="Final Manual.exe" />
   </ItemGroup>
 </Project>

@@ -521,6 +521,56 @@ void VoronoiFractureDemo::displayCallback(void) {
 }
 
 
+btRigidBody* drawJenga(float x, float y, float z, float r){
+
+	double dx = 0;
+	double dy = 90;
+	double dz = 0;
+	
+
+	btTransform groundTransform;
+	groundTransform.setIdentity();
+	
+	btQuaternion transrot = groundTransform.getRotation();
+	btQuaternion rotquat;
+	rotquat = rotquat.getIdentity();
+	rotquat.setEulerZYX(0, r, 0);
+	transrot = rotquat * transrot;
+	groundTransform.setRotation(transrot);
+	groundTransform.setOrigin(btVector3(z, y, x));
+	//groundTransform.setOrigin(btVector3(0, -50, 0));
+	btCollisionShape* jengaBloque = new btBoxShape(btVector3(btScalar(6.), btScalar(2.), btScalar(2.)));
+	btScalar mass(90.);
+
+	
+	//rigidbody is dynamic if and only if mass is non zero, otherwise static
+	bool isDynamic = (mass != 0.f);
+
+	btVector3 localInertia(0, 0, 0);
+	if (isDynamic)
+		jengaBloque->calculateLocalInertia(mass, localInertia);
+	//groundTransform.setOrigin(btVector3(0, y, x));
+	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
+	btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, jengaBloque, localInertia);
+	btRigidBody* body = new btRigidBody(rbInfo);
+	//btTransform trans = body->getCenterOfMassTransform();
+	/*btQuaternion transrot = trans.getRotation();
+	
+	
+	btQuaternion rotquat;
+	rotquat = rotquat.getIdentity();
+	rotquat.setEulerZYX(0, r, 0);
+
+	transrot = rotquat * transrot;
+	trans.setRotation(transrot);
+	*/
+	//trans.setOrigin(btVector3(0, y, x));
+	//body->setCenterOfMassTransform(trans);
+	//add the body to the dynamics world
+	return body;
+}
+
 void	VoronoiFractureDemo::initPhysics()
 {
 	useGenericConstraint = !useGenericConstraint;
@@ -580,66 +630,27 @@ void	VoronoiFractureDemo::initPhysics()
 		//add the body to the dynamics world
 		m_dynamicsWorld->addRigidBody(body);
 	}
-
+	btQuaternion bbq(btScalar(rand() / btScalar(RAND_MAX)) * 2. - 1., btScalar(rand() / btScalar(RAND_MAX)) * 2. - 1., btScalar(rand() / btScalar(RAND_MAX)) * 2. - 1., btScalar(rand() / btScalar(RAND_MAX)) * 2. - 1.);
+	
 	{
-		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(10.),btScalar(8.),btScalar(1.)));
-		btScalar mass(0.);
+		float r = 0;
+		float o = 0;
 
-		//rigidbody is dynamic if and only if mass is non zero, otherwise static
-		bool isDynamic = (mass != 0.f);
+		for (int i = 0; i < 5; i++){
+			r = (i % 2) ? 0 : 1.5708;
+			o = (i % 2) ? 0 : 4.2;
+			m_dynamicsWorld->addRigidBody(drawJenga(8.2 -o, 0 + 4.5 * i, 0, r));
+			m_dynamicsWorld->addRigidBody(drawJenga(4.1, 0 + 4.5 * i, 0, r));
+			m_dynamicsWorld->addRigidBody(drawJenga(0 + o, 0 + 4.5*i, 0, r));
+		}
 
-		btVector3 localInertia(0,0,0);
-		if (isDynamic)
-			groundShape->calculateLocalInertia(mass,localInertia);
-		groundTransform.setOrigin(btVector3(0,0,0));
-		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
-		btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
-		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,groundShape,localInertia);
-		btRigidBody* body = new btRigidBody(rbInfo);
 
-		//add the body to the dynamics world
-		m_dynamicsWorld->addRigidBody(body);
+
 	}
 
 	// ==> Voronoi Shatter Basic Demo: Random Cuboid
 
-	// Random size cuboid (defined by bounding box max and min)
-	btVector3 bbmax(btScalar(rand() / btScalar(RAND_MAX)) * 12. +0.5, btScalar(rand() / btScalar(RAND_MAX)) * 1. +0.5, btScalar(rand() / btScalar(RAND_MAX)) * 1. +0.5);
-	btVector3 bbmin = -bbmax;
-	// Place it 10 units above ground
-	btVector3 bbt(0,15,0);
-	// Use an arbitrary material density for shards (should be consitent/relative with/to rest of RBs in world)
-	btScalar matDensity = 1;
-	// Using random rotation
-	btQuaternion bbq(btScalar(rand() / btScalar(RAND_MAX)) * 2. -1.,btScalar(rand() / btScalar(RAND_MAX)) * 2. -1.,btScalar(rand() / btScalar(RAND_MAX)) * 2. -1.,btScalar(rand() / btScalar(RAND_MAX)) * 2. -1.);
-	bbq.normalize();
-	// Generate random points for voronoi cells
-	btAlignedObjectArray<btVector3> points;
-	btVector3 point;
-	btVector3 diff = bbmax - bbmin;
-	for (int i=0; i < VORONOIPOINTS; i++) {
-		// Place points within box area (points are in world coordinates)
-		point = quatRotate(bbq, btVector3(btScalar(rand() / btScalar(RAND_MAX)) * diff.x() -diff.x()/2., btScalar(rand() / btScalar(RAND_MAX)) * diff.y() -diff.y()/2., btScalar(rand() / btScalar(RAND_MAX)) * diff.z() -diff.z()/2.)) + bbt;
-		points.push_back(point);
-	}
-	m_perfmTimer.reset();
-	voronoiBBShatter(points, bbmin, bbmax, bbq, bbt, matDensity);
-	printf("Total Time: %f seconds\n", m_perfmTimer.getTimeMilliseconds()/1000.);
 	
-	for (int i=m_dynamicsWorld->getNumCollisionObjects()-1; i>=0 ;i--)
-	{
-		btCollisionObject* obj = m_dynamicsWorld->getCollisionObjectArray()[i];
-		obj->getCollisionShape()->setMargin(CONVEX_MARGIN+0.01);
-	}
-	m_dynamicsWorld->performDiscreteCollisionDetection();
-
-	for (int i=m_dynamicsWorld->getNumCollisionObjects()-1; i>=0 ;i--)
-	{
-		btCollisionObject* obj = m_dynamicsWorld->getCollisionObjectArray()[i];
-		obj->getCollisionShape()->setMargin(CONVEX_MARGIN);
-	}
-
-	attachFixedConstraints();
 
 }
 void	VoronoiFractureDemo::clientResetScene()

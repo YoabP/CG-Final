@@ -17,6 +17,7 @@ subject to the following restrictions:
 #define RENDER_TEXTURE_H
 
 #include "LinearMath/btVector3.h"
+
 #include "GLDebugFont.h"
 
 ///

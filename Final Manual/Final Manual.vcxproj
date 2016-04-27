@@ -54,7 +54,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\yoab\Documents\TEC\Semestre 8\CG\FINAL\bullet-2.82-r2704\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\Desktop\bullet3-2.83.7\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -230,6 +230,9 @@
     <ClCompile Include="Win32VoronoiFractureDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="btBulletCollisionCommon.h" />
+    <ClInclude Include="btBulletDynamicsCommon.h" />
+    <ClInclude Include="Bullet-C-Api.h" />
     <ClInclude Include="BulletCollision\BroadphaseCollision\btAxisSweep3.h" />
     <ClInclude Include="BulletCollision\BroadphaseCollision\btBroadphaseInterface.h" />
     <ClInclude Include="BulletCollision\BroadphaseCollision\btBroadphaseProxy.h" />
@@ -463,6 +466,12 @@
     <ClInclude Include="vectormath\sse\vec_aos.h" />
     <ClInclude Include="vectormath\vmInclude.h" />
     <ClInclude Include="VoronoiFractureDemo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Final Manual.exe" />
+    <None Include="freeglut.dll" />
+    <None Include="glew32.dll" />
+    <None Include="OpenGLPropertySheet.props" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
