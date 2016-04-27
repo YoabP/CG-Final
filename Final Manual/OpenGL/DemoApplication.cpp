@@ -1109,45 +1109,13 @@ void DemoApplication::showProfileInfo(int& xOffset,int& yStart, int yIncr)
 		double parent_time = m_profileIterator->Is_Root() ? time_since_reset : m_profileIterator->Get_Current_Parent_Total_Time();
 
 		{
-			sprintf(blockTime,"--- Profiling: %s (total running time: %.3f ms) ---",	m_profileIterator->Get_Current_Parent_Name(), parent_time );
-			displayProfileString(xOffset,yStart,blockTime);
-			yStart += yIncr;
-			sprintf(blockTime,"press (1,2...) to display child timings, or 0 for parent" );
-			displayProfileString(xOffset,yStart,blockTime);
-			yStart += yIncr;
 
 		}
 
 
 		double accumulated_time = 0.f;
 
-		for (int i = 0; !m_profileIterator->Is_Done(); m_profileIterator->Next())
-		{
-			double current_total_time = m_profileIterator->Get_Current_Total_Time();
-			accumulated_time += current_total_time;
-			double fraction = parent_time > SIMD_EPSILON ? (current_total_time / parent_time) * 100 : 0.f;
-
-			sprintf(blockTime,"%d -- %s (%.2f %%) :: %.3f ms / frame (%d calls)",
-				++i, m_profileIterator->Get_Current_Name(), fraction,
-				(current_total_time / (double)frames_since_reset),m_profileIterator->Get_Current_Total_Calls());
-			displayProfileString(xOffset,yStart,blockTime);
-			yStart += yIncr;
-			totalTime += current_total_time;
-		}
-
-		sprintf(blockTime,"%s (%.3f %%) :: %.3f ms", "Unaccounted",
-			// (min(0, time_since_reset - totalTime) / time_since_reset) * 100);
-			parent_time > SIMD_EPSILON ? ((parent_time - accumulated_time) / parent_time) * 100 : 0.f, parent_time - accumulated_time);
-
-		displayProfileString(xOffset,yStart,blockTime);
-		yStart += yIncr;
-
-
-
-		sprintf(blockTime,"-------------------------------------------------");
-		displayProfileString(xOffset,yStart,blockTime);
-		yStart += yIncr;
-
+		
 	}
 #endif//BT_NO_PROFILE
 
